@@ -71,6 +71,11 @@ module.exports = (app) => {
       });
   });
 
+  app.get('/logout', (req, res) => {
+    TOKEN = null;
+    res.redirect('/');
+  });
+
   // POST requests.
   app.post('/api/login', (req, res) => {
     const data = req.body;

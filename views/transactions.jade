@@ -12,6 +12,7 @@ html(lang='en')
     link(href='/template/dist/css/sb-admin-2.css', rel='stylesheet')
     link(href='/template/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
   body
+    a.btn.btn-lg.btn-success.btn-block(href='/logout') Logout
     #wrapper
       #page-wrapper(style='min-height: 1269px;margin-left: 0px;')
         .row
@@ -27,9 +28,9 @@ html(lang='en')
                       table#dataTables-example.table.table-striped.table-bordered.table-hover.dataTable.no-footer.dtr-inline.collapsed(width='100%', role='grid', aria-describedby='dataTables-example_info', style='width: 100%;')
                         thead
                           tr(role='row')
-                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-label='Browser: activate to sort column ascending', style='width: 85px;') Count
-                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-label='Platform(s): activate to sort column ascending', style='width: 78px;') Total
-                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-label='Engine version: activate to sort column ascending', style='width: 56px;') Currency
+                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', style='width: 85px;') Count
+                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', style='width: 78px;') Total
+                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', style='width: 56px;') Currency
                         tbody
                           each item in dashboard
                             tr.gradeA.odd.item(role='row')
@@ -50,18 +51,18 @@ html(lang='en')
                       table#dataTables-example.table.table-striped.table-bordered.table-hover.dataTable.no-footer.dtr-inline.collapsed(width='100%', role='grid', aria-describedby='dataTables-example_info', style='width: 100%;')
                         thead
                           tr(role='row')
-                            th.sorting_asc(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-sort='ascending', aria-label='Rendering engine: activate to sort column descending', style='width: 69px;') Reference No
-                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-label='Browser: activate to sort column ascending', style='width: 85px;') Message
-                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-label='Platform(s): activate to sort column ascending', style='width: 78px;') Transaction ID
-                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-label='Engine version: activate to sort column ascending', style='width: 56px;') Status
-                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-label='Engine version: activate to sort column ascending', style='width: 56px;')
+                            th.sorting_asc(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', aria-sort='ascending', style='width: 69px;') Reference No
+                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', style='width: 85px;') Message
+                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', style='width: 78px;') Transaction ID
+                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', style='width: 56px;') Status
+                            th.sorting(tabindex='0', aria-controls='dataTables-example', rowspan='1', colspan='1', style='width: 56px;') Info
                         tbody
                           each item in transactions
                             tr.gradeA.odd.item(role='row')
                               td.sorting_1 #{item.transaction.merchant.referenceNo}
                               td #{item.transaction.merchant.message}
                               td #{item.transaction.merchant.transactionId}
-                              td.center #{item.transaction.merchant.status}
+                              td #{item.transaction.merchant.status}
                               td.buttons
                                 button.btn.btn-default.clientBtn(style='margin-right:5px;', data-tid='#{item.transaction.merchant.transactionId}' data-type='client') Client
                                 button.btn.btn-default.merchantBtn(style='margin-right:5px;' data-tid='#{item.transaction.merchant.transactionId}' data-type='merchant') Merchant
